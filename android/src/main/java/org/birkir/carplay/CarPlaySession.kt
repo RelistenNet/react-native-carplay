@@ -19,7 +19,6 @@ import com.facebook.react.bridge.LifecycleEventListener
 import com.facebook.react.bridge.ReactContext
 import com.facebook.react.bridge.WritableNativeMap
 import com.facebook.react.modules.appregistry.AppRegistry
-import com.facebook.react.uimanager.ReactRootViewTagGenerator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,6 +30,7 @@ import org.birkir.carplay.utils.EventEmitter
 import org.birkir.carplay.utils.ReactContextResolver
 import java.util.UUID
 import java.util.WeakHashMap
+import java.util.concurrent.atomic.AtomicInteger
 
 class CarPlaySession(
   private val reactInstanceManager: ReactInstanceManager,
@@ -109,7 +109,7 @@ class CarPlaySession(
     try {
       val catalystInstance = reactContext.catalystInstance
       val jsAppModuleName = if (isCluster) "AndroidAutoCluster" else "AndroidAuto"
-      val rootTag = ReactRootViewTagGenerator.getNextRootViewTag()
+      val rootTag = getNextRootViewTag()
 
       val appParams = WritableNativeMap().apply {
         putInt("rootTag", rootTag)
@@ -178,6 +178,11 @@ class CarPlaySession(
 
   companion object {
     const val TAG = "CarPlaySession"
+    private val nextRootViewTag = AtomicInteger(1)
+
+    private fun getNextRootViewTag(): Int {
+      return nextRootViewTag.getAndAdd(10)
+    }
   }
 
   override fun onHostDestroy() {
@@ -190,4 +195,3 @@ class CarPlaySession(
   override fun onHostResume() {
   }
 }
-

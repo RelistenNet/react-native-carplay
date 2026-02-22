@@ -242,16 +242,19 @@ class Parser(
         return SpannableString(cue.asString())
       }
       if (cue.type == ReadableType.Map) {
-        val cueMap = cue.asMap()
-        val text = cueMap.getString("text")
-        val image = parseCarIcon(cueMap.getMap("image")!!, context)
-        val alignment = cueMap.getInt("alignment")
-        val start = cueMap.getInt("start")
-        val end = cueMap.getInt("end")
+        val cueMap = cue.asMap() ?: return null
+        val text = cueMap.getString("text") ?: return null
+        val imageMap = cueMap.getMap("image") ?: return SpannableString(text)
+        val image = parseCarIcon(imageMap, context)
+        val alignment = if (cueMap.hasKey("alignment")) cueMap.getInt("alignment") else CarIconSpan.ALIGN_CENTER
+        val start = if (cueMap.hasKey("start")) cueMap.getInt("start") else 0
+        val end = if (cueMap.hasKey("end")) cueMap.getInt("end") else text.length
+        val safeStart = start.coerceIn(0, text.length)
+        val safeEnd = end.coerceIn(safeStart, text.length)
 
         return SpannableString(text).apply {
           setSpan(
-            CarIconSpan.create(image, alignment), start, end, Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+            CarIconSpan.create(image, alignment), safeStart, safeEnd, Spannable.SPAN_INCLUSIVE_EXCLUSIVE
           )
         }
       }
