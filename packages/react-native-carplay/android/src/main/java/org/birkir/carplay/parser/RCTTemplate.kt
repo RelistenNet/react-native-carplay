@@ -187,7 +187,7 @@ abstract class RCTTemplate(
           }
         }
         if (titleVariants.size() > 1) {
-          setText(titleVariants.getString(1))
+          titleVariants.getString(1)?.let { setText(it) }
         }
       }
       item.getMap("image")?.let { setImage(Parser.parseCarIcon(it, context)) }
@@ -236,7 +236,9 @@ abstract class RCTTemplate(
     )
     props.getArray("texts")?.let {
       for (i in 0 until it.size()) {
-        builder.addText(it.getString(i))
+        it.getString(i)?.let { text ->
+          builder.addText(text)
+        }
       }
     }
     props.getMap("image")?.let {
