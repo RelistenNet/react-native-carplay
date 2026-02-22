@@ -1,0 +1,1 @@
+{"version":3,"file":"Place.d.ts","sourceRoot":"","sources":["../../src/interfaces/Place.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAE,MAAM,cAAc,CAAC;AAEnD;;;GAGG;AACH,MAAM,WAAW,KAAK;IACpB,QAAQ,EAAE,MAAM,CAAC;IACjB,SAAS,EAAE,MAAM,CAAC;IAElB,KAAK,EAAE,mBAAmB,CAAC;CAC5B"}

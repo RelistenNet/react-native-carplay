@@ -1,0 +1,1 @@
+{"version":3,"file":"ListSection.d.ts","sourceRoot":"","sources":["../../src/interfaces/ListSection.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,YAAY,CAAC;AAEtC;;GAEG;AACH,MAAM,WAAW,WAAW;IAC1B;;OAEG;IACH,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB;;;;OAIG;IACH,iBAAiB,CAAC,EAAE,MAAM,CAAC;IAC3B;;OAEG;IACH,KAAK,EAAE,QAAQ,EAAE,CAAC;CACnB"}

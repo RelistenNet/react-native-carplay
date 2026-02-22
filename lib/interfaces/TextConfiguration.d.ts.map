@@ -1,0 +1,1 @@
+{"version":3,"file":"TextConfiguration.d.ts","sourceRoot":"","sources":["../../src/interfaces/TextConfiguration.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,iBAAiB;IAChC,gBAAgB,CAAC,EAAE,MAAM,CAAC;IAC1B,2BAA2B,CAAC,EAAE,MAAM,CAAC;IACrC,mBAAmB,CAAC,EAAE,MAAM,CAAC;CAC9B"}

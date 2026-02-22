@@ -1,0 +1,1 @@
+{"version":3,"file":"VoiceControlState.d.ts","sourceRoot":"","sources":["../../src/interfaces/VoiceControlState.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,mBAAmB,EAAE,MAAM,cAAc,CAAC;AAEnD,MAAM,WAAW,iBAAiB;IAChC,UAAU,EAAE,MAAM,CAAC;IACnB,KAAK,CAAC,EAAE,mBAAmB,CAAC;IAC5B,OAAO,EAAE,OAAO,CAAC;IACjB,aAAa,EAAE,MAAM,EAAE,CAAC;CACzB"}
