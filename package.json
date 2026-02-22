@@ -14,6 +14,7 @@
   ],
   "podspecPath": "./react-native-carplay.podspec",
   "scripts": {
+    "prepare": "yarn run build",
     "prepack": "yarn run build",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --noEmit",
